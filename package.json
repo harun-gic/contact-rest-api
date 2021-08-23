@@ -2,7 +2,7 @@
   "name": "contact-rest-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,5 +21,12 @@
   "bugs": {
     "url": "https://github.com/mhhabil/contact-rest-api/issues"
   },
-  "homepage": "https://github.com/mhhabil/contact-rest-api#readme"
+  "homepage": "https://github.com/mhhabil/contact-rest-api#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mysql2": "^2.3.0",
+    "sequelize": "^6.6.5"
+  }
 }
