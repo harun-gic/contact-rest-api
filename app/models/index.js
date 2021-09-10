@@ -1,25 +1,23 @@
+const User = require("./user.model");
+const Contact = require("./contact.model");
 const dbConfig = require("../config/db_config.js");
 
 const Sequelize = require("sequelize");
-const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
-    host: dbConfig.HOST,
-    dialect: dbConfig.dialect,
+const sequelize = new Sequelize(dbConfig.mysql.DB, dbConfig.mysql.USER, dbConfig.mysql.PASSWORD, {
+    host: dbConfig.mysql.HOST,
+    dialect: dbConfig.mysql.dialect,
     operatorAliases: false,
-
-    pool: {
-        max: dbConfig.pool.max,
-        min: dbConfig.pool.min,
-        acquire: dbConfig.pool.min,
-        idle: dbConfig.pool.idle
-    }
 });
 
+const userModel = new User(sequelize, Sequelize);
+const contactModel = new Contact(sequelize, Sequelize);
 const db = {};
 
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.contacts = require("./contact.model.js")(sequelize, Sequelize);
+db.contacts = contactModel.getContact();
+db.user = userModel.getUser();
 
 
 module.exports = db;

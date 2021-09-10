@@ -35,8 +35,8 @@ app.get("/", (req, res) => {
     });
 });
 
-//contact routes
-require("./app/routes/contact.routes.js")(app);
+//routes
+require("./app/routes/index.routes.js")(app);
 
 const PORT = process.env.PORT || 8080;
 
