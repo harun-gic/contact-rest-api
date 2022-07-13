@@ -49,6 +49,50 @@ class AuthController {
                 });
     }
 
+
+    // class AuthController {
+    //     static login (req, res) {
+    //         const errors = validator.validationResult(req);
+    //         if(!errors.isEmpty()) {
+    //             res.status(400).json({errors: errors.array()});
+    //         }
+    //         const username = req.body.username;
+    //         const password = req.body.password;
+    
+    //         User.findOne({
+    //             where: {
+    //                 username:username,
+    //             },
+    //         })
+    //             .then((user) => {
+    //                 if(!user) {
+    //                     res.status(401).json({
+    //                         message: "Username atau Password salah!"
+    //                     })
+    //                 }
+    //                 else if (user.dataValues.password === password) {
+    //                     const userData = user.dataValues;
+    //                     console.log(`Login Berhasil ${userData}`);
+    //                     let token = jwt.sign({ userData }, 'secretkey', {
+    //                         expiresIn: 172800,
+    //                     }); 
+    //                     user.token = token;
+    //                     res.status(200).json({
+    //                         message: "Login Berhasil",
+    //                         token: token,
+    //                         data: user,
+    //                     });
+    //                 } else {
+    //                     res.status(401).json({
+    //                         message: "Password Salah!"
+    //                     });
+    //                 }
+    //             })
+    //                 .catch((err) => {
+    //                     console.log(err);
+    //                 });
+    //     }
+
     static register (req, res) {
         const errors = validator.validationResult(req);
         if(!errors.isEmpty()) {

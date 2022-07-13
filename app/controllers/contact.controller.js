@@ -6,6 +6,15 @@ const Redis = require('ioredis');
 const redis = new Redis();
 const Op = db.Sequelize.Op;
 
+
+// const db = require("../models");
+// const Contact = db.contacts;
+// const config = require('../config/db_config');
+// const redisHelper = require('../helper/redis_helper');
+// const Redis = require('ioredis');
+// const redis = new Redis();
+// const Op = db.Sequelize.Op;
+
 class ContactController{
 
 // Create contact
